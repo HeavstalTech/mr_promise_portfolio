@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { 
   SiWhatsapp, SiTelegram, SiTiktok, SiGithub, SiNextdotjs, SiReact, 
   SiPostgresql, SiAstro, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, 
-  SiHtml5, SiCss, SiRedis, SiMarkdown, SiTypescript, SiJavascript, SiMysql, 
+  SiHtml5, SiCss3, SiRedis, SiMarkdown, SiTypescript, SiJavascript, SiMysql, 
   SiSupabase, SiGit, SiLinux, SiCloudflare, SiVercel, 
   SiDocker, SiGnubash 
 } from "react-icons/si";
@@ -15,6 +15,7 @@ import { MdOutlineRocketLaunch } from "react-icons/md";
 import { FaAws } from "react-icons/fa6";
 
 export default function Home() {
+  const [activeProject, setActiveProject] = useState(0);
   useEffect(() => {
     function revealOnScroll() {
       const reveals = document.querySelectorAll(".reveal");
@@ -32,6 +33,25 @@ export default function Home() {
     revealOnScroll();
     return () => window.removeEventListener("scroll", revealOnScroll);
   }, []);
+
+  const handleProjectScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const container = e.currentTarget;
+    const scrollLeft = container.scrollLeft;
+    const containerCenter = scrollLeft + container.clientWidth / 2;    
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+    Array.from(container.children).forEach((child, index) => {
+      const htmlChild = child as HTMLElement;
+      const childCenter = htmlChild.offsetLeft + htmlChild.clientWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);      
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    setActiveProject(closestIndex);
+  };
   
   const projects = [
     {
@@ -72,19 +92,19 @@ export default function Home() {
       description: "WhatsApp-based automation platform featuring an autonomous AI assistant named Gideon, integrated with the Heavstal ecosystem.",
       url: "https://github.com/HeavstalTech/Verselor-V1",
       image: "/verselor.png",
-      languages: [<SiNodedotjs key="node" />, <SiHtml5 key="html" />, <SiCss key="css" />],
+      languages: [<SiNodedotjs key="node" />, <SiHtml5 key="html" />, <SiCss3 key="css" />],
     },
     {
-      id: 6,
+      id: 7,
       name: "MediSphere",
       description: "MediSphere is a blockchain-powered ecosystem making healthcare accessible, affordable, and connected worldwide. Powered by the $MEDISPHERE token.",
       url: "https://medispheretoken.com",
       image: "/MediSphere-Logo.jpg",
       tag: "Built for a Client",
-      languages: [<SiHtml5 key="html" />, <SiCss key="css" />, <MdOutlineRocketLaunch key="cicd" />],
+      languages: [<SiHtml5 key="html" />, <SiCss3 key="css" />, <MdOutlineRocketLaunch key="cicd" />],
     },
     {
-      id: 7,
+      id: 6,
       name: "Gideon",
       description: "An autonomous AI agent designed for both individuals and developers, with capabilities extending beyond traditional AI chatbot experiences.",
       url: "#",
@@ -105,8 +125,8 @@ export default function Home() {
   return (
     <div className="w-full max-w-5xl mx-auto px-6 pt-32 pb-20 overflow-hidden">
       <section id="about" className="mb-32">
-        <div className="flex flex-col items-start gap-6 mb-10">
-          <div className="relative w-32 h-32 flex items-center justify-center">
+        <div className="flex flex-row items-center gap-4 md:gap-8 mb-6">
+          <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 flex items-center justify-center">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
@@ -117,28 +137,30 @@ export default function Home() {
               transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
               className="absolute inset-2 rounded-full border-[2px] border-dashed border-gray-400 opacity-60"
             />
-            <div className="w-24 h-24 bg-gray-800 rounded-full overflow-hidden relative z-10 border-2 border-[#0F1115]">
+            <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-800 rounded-full overflow-hidden relative z-10 border-2 border-[#0F1115]">
                <img src="/mr_promise.png" alt="Mr Promise" className="w-full h-full object-cover" /> 
             </div>
           </div>
-          <div>
-            <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 uppercase">
+          
+          <div className="flex flex-col">
+            <h1 className="text-2xl md:text-5xl font-bold text-white tracking-tight mb-1 md:mb-2 uppercase">
               Ekiverere Promise Edesiri
             </h1>
-            <p className="text-gray-400 text-sm md:text-base font-mono uppercase tracking-wider">
-              ꜰᴏᴜɴᴅᴇʀ & ᴄʜɪᴇꜰ ᴛᴇᴄʜɴᴏʟᴏɢʏ ᴏꜰꜰɪᴄᴇʀ (ᴄᴛᴏ), ʜᴇᴀᴠꜱᴛᴀʟ ᴛᴇᴄʜ
+            <p className="text-gray-400 text-xs md:text-sm font-medium uppercase tracking-widest">
+              Founder & Chief Technology Officer (CTO), Heavstal Tech
             </p>
           </div>
-          <div className="flex items-center gap-5 mt-2">
-            <Link href="https://wa.me/2348166546725" target="_blank"><SiWhatsapp size={24} color="#25D366" className="hover:scale-110 transition-transform" /></Link>
-            <Link href="https://wa.me/2348137256404" target="_blank" className="relative group hover:scale-110 transition-transform">
-              <SiWhatsapp size={24} color="#128C7E" />
-              <span className="absolute -bottom-1 -right-1 bg-[#128C7E] text-white text-[9px] font-bold px-1 rounded-sm border border-[#0F1115]">B</span>
-            </Link>
-            <Link href="https://t.me/mr_promise818" target="_blank"><SiTelegram size={24} color="#26A5E4" className="hover:scale-110 transition-transform" /></Link>
-            <Link href="http://tiktok.com/@mr_promise8181" target="_blank"><SiTiktok size={24} color="#FFFFFF" className="hover:scale-110 transition-transform" /></Link>
-            <Link href="https://github.com/HeavstalTech" target="_blank"><SiGithub size={24} color="#FFFFFF" className="hover:scale-110 transition-transform" /></Link>
-          </div>
+        </div>
+
+        <div className="flex items-center gap-5 mb-10 pl-2 md:pl-40">
+          <Link href="https://wa.me/2348166546725" target="_blank"><SiWhatsapp size={24} color="#25D366" className="hover:scale-110 transition-transform" /></Link>
+          <Link href="https://wa.me/2348137256404" target="_blank" className="relative group hover:scale-110 transition-transform">
+            <SiWhatsapp size={24} color="#128C7E" />
+            <span className="absolute -bottom-1 -right-1 bg-[#128C7E] text-white text-[9px] font-bold px-1 rounded-sm border border-[#0F1115]">B</span>
+          </Link>
+          <Link href="https://t.me/mr_promise818" target="_blank"><SiTelegram size={24} color="#26A5E4" className="hover:scale-110 transition-transform" /></Link>
+          <Link href="https://tiktok.com/@mr_promise8181" target="_blank"><SiTiktok size={24} color="#FFFFFF" className="hover:scale-110 transition-transform" /></Link>
+          <Link href="https://github.com/HeavstalTech" target="_blank"><SiGithub size={24} color="#FFFFFF" className="hover:scale-110 transition-transform" /></Link>
         </div>
         
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed max-w-4xl font-light">
@@ -170,19 +192,33 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-white mb-2">Developer • <Link href="https://github.com/HeavstalTech/Promise-Md" className="text-gray-300 hover:text-white">Promise Md</Link></h3>
             <p className="text-gray-400 font-light leading-relaxed mb-4">My early development journey was centered around the WhatsApp and Telegram bot ecosystem, where I built, maintained, and shipped production-ready automation bots used by the community. Along the way, I expanded into full-stack web development, creating MERN applications, React and Next.js projects, developer tools, and educational resources.</p>
             <div className="flex flex-wrap gap-4 text-gray-500 text-xl">
-              <SiNodedotjs title="Node.js" /> <SiNextdotjs title="Next.js" /> <SiReact title="React" /> <SiExpress title="Express" /> <SiMongodb title="MongoDB" /> <SiHtml5 title="HTML5" /> <SiCss title="CSS3" /> <SiTailwindcss title="Tailwind CSS" />
+              <SiNodedotjs title="Node.js" /> <SiNextdotjs title="Next.js" /> <SiReact title="React" /> <SiExpress title="Express" /> <SiMongodb title="MongoDB" /> <SiHtml5 title="HTML5" /> <SiCss3 title="CSS3" /> <SiTailwindcss title="Tailwind CSS" />
             </div>
           </div>
         </div>
       </section>
 
       <section id="projects" className="reveal mb-32">
-        <h2 className="text-2xl font-bold text-white mb-8 border-b border-gray-800 pb-4">Featured Projects</h2>
-        <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
+        <div className="flex items-end justify-between mb-8 border-b border-gray-800 pb-4">
+          <h2 className="text-2xl font-bold text-white">Featured Projects</h2>
+          <div className="flex gap-1.5 pb-1">
+            {projects.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`w-2 h-2 rounded-full transition-colors duration-300 ${activeProject === idx ? 'bg-[#ff0055]' : 'bg-gray-700'}`} 
+              />
+            ))}
+          </div>
+        </div>
+
+        <div 
+          className="flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x snap-mandatory hide-scrollbar"
+          onScroll={handleProjectScroll}
+        >
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="snap-center shrink-0 w-[300px] md:w-[400px] bg-[#161b22] border border-gray-800 rounded-xl overflow-hidden hover:border-gray-600 transition-colors flex flex-col group"
+              className="snap-center shrink-0 w-[85vw] max-w-[350px] md:max-w-none md:w-[400px] bg-[#161b22] border border-gray-800 rounded-xl overflow-hidden hover:border-gray-600 transition-colors flex flex-col group"
             >
               <div className="w-full h-48 bg-gray-800 overflow-hidden relative">
                 {project.tag && (
@@ -192,7 +228,6 @@ export default function Home() {
                 )}
                 <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center text-gray-600">
                   <img src={project.image} alt={project.name} className="w-full h-full object-cover" /> 
-                  {/* Image: {project.image} */}
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-grow">
@@ -228,7 +263,7 @@ export default function Home() {
               <SiJavascript color="#F7DF1E" title="JavaScript" />
               <SiTypescript color="#3178C6" title="TypeScript" />
               <SiHtml5 color="#E34F26" title="HTML5" />
-              <SiCss color="#1572B6" title="CSS3" />
+              <SiCss3 color="#1572B6" title="CSS3" />
               <SiMysql color="#4479A1" title="SQL" />
             </div>
           </div>
@@ -272,14 +307,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cv" className="reveal mb-32 flex flex-col items-center justify-center text-center bg-[#161b22] border border-gray-800 rounded-2xl p-10">
-        <h2 className="text-2xl font-bold text-white mb-6 uppercase">CHECK OUT MY CURRICULUM VITAE (CV)</h2>
+      <section id="cv" className="reveal mb-32 flex flex-col items-start">
+        <h2 className="text-2xl font-bold text-white mb-6 uppercase border-b border-gray-800 pb-4 w-full">CHECK OUT MY CURRICULUM VITAE (CV)</h2>
         <a 
           href="/mr_promise_cv.pdf" 
           download="mr_promise_cv.pdf"
-          className="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-gray-200 hover:scale-105 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          className="bg-white text-black font-bold py-3 px-8 mt-2 rounded-full hover:bg-gray-200 hover:scale-105 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] inline-block"
         >
-          [ Grab A Copy ]
+          Grab A Copy
         </a>
       </section>
 
