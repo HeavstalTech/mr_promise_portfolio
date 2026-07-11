@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { 
   SiWhatsapp, SiTelegram, SiTiktok, SiGithub, SiNextdotjs, SiReact, 
   SiPostgresql, SiAstro, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, 
-  SiHtml5, SiCss3, SiRedis, SiMarkdown, SiTypescript, SiJavascript, SiMysql, 
+  SiHtml5, SiCss, SiRedis, SiMarkdown, SiTypescript, SiJavascript, SiMysql, 
   SiSupabase, SiAmazonwebservices, SiGit, SiLinux, SiCloudflare, SiVercel, 
   SiDocker, SiGnubash 
 } from "react-icons/si";
@@ -71,7 +71,7 @@ export default function Home() {
       description: "WhatsApp-based automation platform featuring an autonomous AI assistant named Gideon, integrated with the Heavstal ecosystem.",
       url: "https://github.com/HeavstalTech/Verselor-V1",
       image: "/verselor.png",
-      languages: [<SiNodedotjs key="node" />, <SiHtml5 key="html" />, <SiCss3 key="css" />],
+      languages: [<SiNodedotjs key="node" />, <SiHtml5 key="html" />, <SiCss key="css" />],
     },
     {
       id: 6,
@@ -80,7 +80,7 @@ export default function Home() {
       url: "https://medispheretoken.com",
       image: "/MediSphere-Logo.jpg",
       tag: "Built for a Client",
-      languages: [<SiHtml5 key="html" />, <SiCss3 key="css" />, <MdOutlineRocketLaunch key="cicd" />],
+      languages: [<SiHtml5 key="html" />, <SiCss key="css" />, <MdOutlineRocketLaunch key="cicd" />],
     },
     {
       id: 7,
@@ -169,7 +169,7 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-white mb-2">Developer • <Link href="https://github.com/HeavstalTech/Promise-Md" className="text-gray-300 hover:text-white">Promise Md</Link></h3>
             <p className="text-gray-400 font-light leading-relaxed mb-4">My early development journey was centered around the WhatsApp and Telegram bot ecosystem, where I built, maintained, and shipped production-ready automation bots used by the community. Along the way, I expanded into full-stack web development, creating MERN applications, React and Next.js projects, developer tools, and educational resources.</p>
             <div className="flex flex-wrap gap-4 text-gray-500 text-xl">
-              <SiNodedotjs title="Node.js" /> <SiNextdotjs title="Next.js" /> <SiReact title="React" /> <SiExpress title="Express" /> <SiMongodb title="MongoDB" /> <SiHtml5 title="HTML5" /> <SiCss3 title="CSS3" /> <SiTailwindcss title="Tailwind CSS" />
+              <SiNodedotjs title="Node.js" /> <SiNextdotjs title="Next.js" /> <SiReact title="React" /> <SiExpress title="Express" /> <SiMongodb title="MongoDB" /> <SiHtml5 title="HTML5" /> <SiCss title="CSS3" /> <SiTailwindcss title="Tailwind CSS" />
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function Home() {
               <SiJavascript color="#F7DF1E" title="JavaScript" />
               <SiTypescript color="#3178C6" title="TypeScript" />
               <SiHtml5 color="#E34F26" title="HTML5" />
-              <SiCss3 color="#1572B6" title="CSS3" />
+              <SiCss color="#1572B6" title="CSS3" />
               <SiMysql color="#4479A1" title="SQL" />
             </div>
           </div>
