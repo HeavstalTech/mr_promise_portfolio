@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mrpromisee.name.ng"),  
   title: "Ekiverere Promise Edesiri | Software Engineer & CTO",
   description: "Hi there! I'm Mr. Promise, Founder & CTO of Heavstal Tech. I love developing infrastructure that solves and simplifies real-world problems.",
   keywords: [
@@ -18,6 +19,11 @@ export const metadata: Metadata = {
     "System Design"
   ],
   authors: [{ name: "Ekiverere Promise Edesiri" }],
+  icons: {
+    icon: "/mr_promise.png",
+    shortcut: "/mr_promise.png",
+    apple: "/mr_promise.png",
+  },
   openGraph: {
     title: "Ekiverere Promise Edesiri | Software Engineer & CTO",
     description: "Founder & CTO of Heavstal Tech. Building accessible infrastructure for Africa and the world.",
@@ -27,12 +33,18 @@ export const metadata: Metadata = {
       {
         url: "/mr_promise.png",
         width: 800,
-        height: 600,
+        height: 800,
         alt: "Ekiverere Promise Edesiri - Mr Promise",
       },
     ],
     locale: "en_NG",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ekiverere Promise Edesiri | Software Engineer & CTO",
+    description: "Founder & CTO of Heavstal Tech. Building accessible infrastructure for Africa and the world.",
+    images: ["/mr_promise.png"],
   },
 };
 
@@ -59,7 +71,7 @@ export default function RootLayout({
       "https://wa.me/2348166546725",
       "https://wa.me/2348137256404",
       "https://t.me/mr_promise818",
-      "http://tiktok.com/@mr_promise8181"
+      "https://tiktok.com/@mr_promise8181"
     ],
     "knowsAbout": [
       "Software Engineering",
