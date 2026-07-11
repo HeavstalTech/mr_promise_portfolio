@@ -191,8 +191,8 @@ export default function Home() {
                   </span>
                 )}
                 <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center text-gray-600">
-                  {/* <img src={project.image} alt={project.name} className="w-full h-full object-cover" /> */}
-                  Image: {project.image}
+                  <img src={project.image} alt={project.name} className="w-full h-full object-cover" /> 
+                  {/* Image: {project.image} */}
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-grow">
