@@ -7,11 +7,12 @@ import {
   SiWhatsapp, SiTelegram, SiTiktok, SiGithub, SiNextdotjs, SiReact, 
   SiPostgresql, SiAstro, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, 
   SiHtml5, SiCss, SiRedis, SiMarkdown, SiTypescript, SiJavascript, SiMysql, 
-  SiSupabase, SiAmazonwebservices, SiGit, SiLinux, SiCloudflare, SiVercel, 
+  SiSupabase, SiGit, SiLinux, SiCloudflare, SiVercel, 
   SiDocker, SiGnubash 
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { MdOutlineRocketLaunch } from "react-icons/md";
+import { FaAws } from "react-icons/fa6";
 
 export default function Home() {
   useEffect(() => {
@@ -252,7 +253,7 @@ export default function Home() {
               <SiSupabase color="#3ECF8E" title="Supabase" />
               <SiMongodb color="#47A248" title="MongoDB" />
               <SiRedis color="#DC382D" title="Redis" />
-              <SiAmazonwebservices color="#232F3E" title="AWS" />
+              <FaAws color="#232F3E" title="AWS" />
             </div>
           </div>
 
