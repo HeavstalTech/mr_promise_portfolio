@@ -50,7 +50,7 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">            
-            <div className="relative w-12 h-12 flex items-center justify-center"
+            <div className="relative w-12 h-12 flex items-center justify-center">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
