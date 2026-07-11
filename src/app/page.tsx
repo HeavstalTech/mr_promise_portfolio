@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
+import Lenis from "lenis"; // Added Lenis
 import { 
   SiWhatsapp, SiTelegram, SiTiktok, SiGithub, SiNextdotjs, SiReact, 
   SiPostgresql, SiAstro, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, 
@@ -16,22 +16,30 @@ import { FaAws } from "react-icons/fa6";
 
 export default function Home() {
   const [activeProject, setActiveProject] = useState(0);
+
   useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+    
     function revealOnScroll() {
       const reveals = document.querySelectorAll(".reveal");
       for (let i = 0; i < reveals.length; i++) {
         const windowHeight = window.innerHeight;
         const elementTop = reveals[i].getBoundingClientRect().top;
         const elementVisible = 50;
-
         if (elementTop < windowHeight - elementVisible) {
           reveals[i].classList.add("active");
         }
       }
     }
+    
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
-    return () => window.removeEventListener("scroll", revealOnScroll);
+    return () => {
+      window.removeEventListener("scroll", revealOnScroll);
+      lenis.destroy();
+    };
   }, []);
 
   const handleProjectScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -49,7 +57,6 @@ export default function Home() {
         closestIndex = index;
       }
     });
-
     setActiveProject(closestIndex);
   };
   
@@ -127,16 +134,9 @@ export default function Home() {
       <section id="about" className="mb-32">
         <div className="flex flex-row items-center gap-4 md:gap-8 mb-6">
           <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 flex items-center justify-center">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-              className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#ff0055] border-b-[#ff0055] opacity-90"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              className="absolute inset-2 rounded-full border-[2px] border-dashed border-gray-400 opacity-60"
-            />
+            <div className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-[#ff0055] border-b-[#ff0055] opacity-90 animate-[spin_5s_linear_infinite]" />
+            <div className="absolute inset-2 rounded-full border-[2px] border-dashed border-gray-400 opacity-60 animate-[spin_10s_linear_infinite_reverse]" />
+            
             <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-800 rounded-full overflow-hidden relative z-10 border-2 border-[#0F1115]">
                <img src="/mr_promise.png" alt="Mr Promise" className="w-full h-full object-cover" /> 
             </div>
@@ -201,6 +201,7 @@ export default function Home() {
       <section id="projects" className="reveal mb-32">
         <div className="flex items-end justify-between mb-8 border-b border-gray-800 pb-4">
           <h2 className="text-2xl font-bold text-white">Featured Projects</h2>
+          
           <div className="flex gap-1.5 pb-1">
             {projects.map((_, idx) => (
               <div 
@@ -308,7 +309,7 @@ export default function Home() {
       </section>
 
       <section id="cv" className="reveal mb-32 flex flex-col items-start">
-        <h2 className="text-2xl font-bold text-white mb-6 uppercase border-b border-gray-800 pb-4 w-full">CHECK OUT MY CURRICULUM VITAE (CV)</h2>
+        <h2 className="text-2xl font-bold text-white mb-4 uppercase">CHECK OUT MY CURRICULUM VITAE (CV)</h2>
         <a 
           href="/mr_promise_cv.pdf" 
           download="mr_promise_cv.pdf"
