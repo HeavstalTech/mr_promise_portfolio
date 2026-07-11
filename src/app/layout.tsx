@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ekiverere Promise Edesiri | Software Engineer & CTO",
     description: "Founder & CTO of Heavstal Tech. Building accessible infrastructure for Africa and the world.",
-    url: "https://heavstal.com.ng", 
+    url: "https://mrpromisee.name.ng", 
     siteName: "Ekiverere Promise Edesiri Portfolio",
     images: [
       {
@@ -53,7 +53,7 @@ export default function RootLayout({
       "name": "Heavstal Tech",
       "url": "https://heavstal.com.ng"
     },
-    "url": "https://heavstal.com.ng", 
+    "url": "https://mrpromisee.name.ng", 
     "sameAs": [
       "https://github.com/HeavstalTech",
       "https://wa.me/2348166546725",
