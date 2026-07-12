@@ -27,7 +27,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-black border-t border-[#111111] py-12 px-6 mt-20">
       <div className="max-w-4xl mx-auto flex flex-col items-start gap-12">
-        <div className="flex flex-row-reverse items-center gap-0">         
+        <div className="flex flex-row-reverse items-center gap-2">         
           <Link href="https://wa.me/2348166546725" target="_blank" aria-label="WhatsApp">
             <SiWhatsapp size={24} color="#25D366" className="hover:scale-110 transition-transform" />
           </Link>
