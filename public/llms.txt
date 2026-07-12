@@ -1,0 +1,28 @@
+# Ekiverere Promise Edesiri (Mr. Promise) - Portfolio
+
+## About
+Ekiverere Promise Edesiri, also known as Mr. Promise, is a Software Engineer and the Founder & CTO of Heavstal Tech. Based in Nigeria, he specializes in developing infrastructure that solves and simplifies real-world problems. He enjoys working at the intersection of software architecture, engineering, and design, where great UX meets clean, scalable code.
+
+## Current Role
+Founder & Chief Technology Officer (CTO) at Heavstal Tech (https://heavstal.com.ng). He leads system design and backend engineering, shaping the engineering strategy covering authentication, APIs, and core infrastructure.
+
+## Featured Projects
+1. Heavstal Tech Platform: Central platform providing access to Heavstal services.
+2. Heavstal Auth: Africa-built OAuth 2.0 & OIDC identity provider.
+3. Heavstal Docs: Documentation hub for Heavstal products.
+4. Heavstal Bots: Automation-focused platform for auth codes.
+5. Verselor V1: WhatsApp-based automation platform featuring an AI assistant named Gideon.
+6. MediSphere: Blockchain-powered ecosystem making healthcare accessible.
+
+## Tech Stack
+- Languages: JavaScript, TypeScript, HTML5, CSS3, SQL
+- Frameworks: React, Next.js, Astro, Tailwind CSS, Node.js, Express, Bash
+- Infrastructure & DBs: Supabase, MongoDB, Redis, AWS, Custom APIs
+- Tools: Git, GitHub, Linux, Cloudflare, Vercel, Docker
+
+## Contact & Links
+- GitHub: https://github.com/HeavstalTech
+- Telegram: https://t.me/mr_promise818
+- WhatsApp: https://wa.me/2348166546725
+- TikTok: https://tiktok.com/@mr_promise8181
+- Website: https://mrpromisee.name.ng
