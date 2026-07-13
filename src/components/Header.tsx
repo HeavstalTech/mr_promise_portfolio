@@ -1,29 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import clsx from "clsx";
 import { FiVolumeX, FiVolume2 } from "react-icons/fi";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const toggleAudio = () => {
     if (audioRef.current) {
@@ -58,13 +44,9 @@ export default function Header() {
     <>
       <audio ref={audioRef} src="/Portfolio_Audio.mp3" loop className="hidden" />
 
-      <header
-        className={clsx(
-          "fixed top-0 left-0 right-0 z-50 bg-[#0F1115]/90 backdrop-blur-md border-b border-gray-800 transition-transform duration-500",
-          !isScrolled && "max-md:-translate-y-full md:translate-y-0"
-        )}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F1115]/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          
           <div className="flex items-center gap-3">            
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
               <motion.div
@@ -81,7 +63,7 @@ export default function Header() {
                 <img src="/mr_promise.png" alt="Mr Promise" className="w-full h-full object-cover" />
               </div>
             </div>
-            
+
             <div className="flex flex-col max-w-[130px] sm:max-w-[200px] md:max-w-none">
               <span className="font-bold text-white text-[13px] sm:text-[15px] leading-tight truncate">
                 Ekiverere Promise Edesiri
